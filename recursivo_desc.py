@@ -47,7 +47,7 @@ class RecDescendente:
                 a, e = self.K()
                 return self.txt, e
             else:
-                self.txt, ": nao eh inteiro no final"
+                return self.txt, ": nao eh inteiro no final"
 
         self.txt += "e" #adicionando vazio
         return self.txt, None # quando fica vazio
