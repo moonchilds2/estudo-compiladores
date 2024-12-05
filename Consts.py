@@ -1,5 +1,3 @@
-
-#Consts.py
 import string
 
 class Consts:
@@ -22,9 +20,11 @@ class Consts:
     KEY		  = 'KEY'
     NULL      = 'null'
     STRING    = "STRING"
+    GRAPH     = '@'
     LSQUARE   = "[" # Left  Box brackets [
     RSQUARE   = "]" # Right Box brackets ]
     COMMA      = ","
+
 
     # Exemplos de Palavras reservadas
     LET         = 'let'
@@ -37,3 +37,4 @@ class Consts:
         WHILE,
         FOR
     ]
+
