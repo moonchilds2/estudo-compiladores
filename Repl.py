@@ -11,7 +11,7 @@ class Repl(Cmd):
     def help_exit(self):
         print('Digite\n :q para sair\n :s para um exemplo!')
         return False
-    def emptyline(self): # Disabilita repeticao do ultimo comando
+    def emptyline(self): # Desabilita repeticao do ultimo comando
         pass
     def do_s(self):
         print("Samples:")
@@ -30,7 +30,6 @@ class Repl(Cmd):
     help_EOF = help_exit
 
     def run(self, linha):
-        # Gerar tokens
         lexer = Lexer(linha)
         tokens, error = lexer.makeTokens()
         if error: 

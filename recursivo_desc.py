@@ -17,7 +17,9 @@ class RecDescendente:
         self.nextToken()
         a, e = self.E()
         if self.currentTok().type != Consts.EOF:
-            return None, (e+":Erro nao $ no final")
+
+            return None, ((e if e else "") + ":Erro nao $ no final")  #mudei aqui pq quando a variavel e é None, tentava concatenar com 
+                                                                      #uma string e isso gerava um erro pq eh NoneType+String. Na correção quando e é None vira "" (a gente deve mudar isso em janeiro pra aplicar melhor a classe de Erro, mas acho que por enquanto assim é melhor)
         return a, e
     
     def currentTok(self): return self.current
@@ -33,7 +35,7 @@ class RecDescendente:
             self.txt += "i"
             self.nextToken()
             a, e = self.K()
-            return a, e
+            return a, e or ""   # mesma logica do start(), p previnir erro.
         return None, "Falha E(), precisa iniciar com inteiro"
     
     def K(self):
@@ -45,9 +47,9 @@ class RecDescendente:
                 self.nextToken()
                 self.txt += "+i"
                 a, e = self.K()
-                return self.txt, e
+                return self.txt, e or ""
             else:
                 return self.txt, ": nao eh inteiro no final"
 
-        self.txt += "e" #adicionando vazio
-        return self.txt, None # quando fica vazio
+        self.txt += "e"         # adicionando vazio.
+        return self.txt, ""     # quando fica vazio.
